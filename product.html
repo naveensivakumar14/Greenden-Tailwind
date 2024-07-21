@@ -25,53 +25,53 @@
         <section class="p-4 text-center">
             <div class="text-center">
                 <h1 class=" font-bold text-3xl text-center mt-10">Products</h1>
-                <input type="text" class="border border-black p-3 m-5" style="width: 60%;">
+                <input id="search" type="text" class="border border-black p-3 m-5" style="width: 60%;">
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 mt-5 gap-5">
-                <div>
+            <div id="product-container" class="grid grid-cols-2 md:grid-cols-4 mt-5 gap-5">
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/plant-pro1.jpg" style="height: 250px; width: 200px;"  alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Spider plant</h2>
                     <p>$30</p>
                 </div>
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/plant-pro2.jpg" style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Green jade plant</h2>
                     <p>$28</p>
                 </div>
 
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/plant-pro3.jpg"  style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Bromeliad</h2>
                     <p>$27</p>
                 </div>
 
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/plant-pro4.jpg" style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Spacy lilly</h2>
                     <p>$25</p>
                 </div>
 
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/plant-pro5.jpg" style="height: 250px; width: 200px;"  alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2> Grotons</h2>
                     <p>$22</p>
                 </div>
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/bestseller-3.jpg" style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Ivy fresh</h2>
                     <p>$18</p>
                 </div>
 
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/bestseller-1.jpg"  style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>solid rose</h2>
                     <p>$15</p>
                 </div>
 
-                <div>
+                <div class="text-center">
                     <img class="inline hover:shadow-xl transform hover:-translate-y-2" src="./images/bestseller-2.jpg" style="height: 250px; width: 200px;" alt="">
-                    <h2>Interior plant pots</h2>
+                    <h2>Lucky bambo</h2>
                     <p>$10</p>
                 </div>
 
@@ -86,6 +86,31 @@
             <p>The Standard chunk of Lorem ipsum used since the 1500s us reprodused below for those interest</p>
             <p>@ 2024 Greenden.com</p>
         </section>
+
+        <script>
+            //product search functionality
+            var productContainer=document.getElementById("product-container");
+            var  search=document.getElementById("search");
+            var productList=productContainer.querySelectorAll("div");
+
+            search.addEventListener("keyup",function(){
+
+                var enteredValue=event.target.value.toUpperCase();
+
+                for(count=0;count<productList.length;count++){
+
+                    //selecting the h2 from the productList div elements
+                    var productName=productList[count].querySelector("h2").textContent;
+
+                    if(productName.toUpperCase().indexOf(enteredValue)<0){
+                        productList[count].style.display="none";
+                    }
+                    else{
+                        productList[count].style.display="block";
+                    }
+                }
+            })
+        </script>
     
 </body>
 </html>
